@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fest DB - Home</title>
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: 'Raleway', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+            background-color: #000; /* Background color for the entire page */
+            color: #fff; /* Default text color */
+        }
+
+        .video-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire viewport */
+            z-index: -1; /* Place the video below other content */
+        }
+
+        .header {
+            padding: 200px 0; /* Adjust top and bottom padding */
+            text-align: center;
+            animation: fadeIn 2s ease; /* Animation using keyframes */
+            /* position: relative; Add relative positioning to content */
+            z-index: 1; /* Place content above the video */
+        }
+
+        .navigation {
+            padding: 20px; /* Add space around navigation links */
+            text-align: right;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .nav-area {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; /* Remove default margin */
+        }
+
+        .nav-area li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .nav-area li a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold; /* Make navigation links bold */
+            transition: color 0.3s ease, background-color 0.3s ease; /* Smooth color and background color transitions on hover */
+            padding: 5px 10px; /* Add padding to the links */
+            border-radius: 5px; /* Add rounded corners */
+        }
+
+        .nav-area li a:hover {
+            color: #dc776e; /* Change link color on hover */
+            background-color: rgba(255, 255, 255, 0.1); /* Add a subtle background color on hover */
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Stylish font and font size */
+        .header h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 60px; /* Increase font size */
+            margin: 0;
+            padding: 0;
+            letter-spacing: 2px; /* Add letter spacing for style */
+        }
+
+        /* Keyframes for fadeIn animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+    <video src="videos/Digital_Grid_Technology_2.mp4" muted autoplay loop class="video-slider active"></video>
+    </div>
+    <div class="navigation">
+        <ul class="nav-area">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Log In</a></li>
+        </ul>
+    </div>
+    <div class="header">
+        <h1 id="header-text"></h1>
+        <p>Your go-to source for festival information</p>
+    </div>
+    <div class="bubble-container"></div>
+    <script>
+        // JavaScript to type text letter by letter
+        const headerText = "Welcome to Fest DB";
+        const headerElement = document.getElementById("header-text");
+        let index = 0;
+
+        function typeText() {
+            if (index < headerText.length) {
+                headerElement.innerHTML += headerText.charAt(index);
+                index++;
+                setTimeout(typeText, 100); // Adjust typing speed here (milliseconds)
+            }
+        }
+
+        typeText();
+    </script>
+</body>
+</html>
